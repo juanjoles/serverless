@@ -1,0 +1,18 @@
+service: juanjolescano-createclientsls
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: nodejs12.x
+
+
+functions:
+  create-client:
+    handler: create-client.handler
+    description: 'An API that create new clients'
+    events:
+      - http:
+          path: clients
+          method: POST

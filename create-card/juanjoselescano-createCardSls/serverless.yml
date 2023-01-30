@@ -1,0 +1,17 @@
+service: juanjoselescano-createcardsls
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+          
+functions:
+  create-card:
+    handler: create-card.handler
+    description: 'An API that create new cards'
+    events:
+      - sqs:
+          arn: arn:aws:sqs:us-east-1:450865910417:juanjoselescano-createdCard
+          
+
